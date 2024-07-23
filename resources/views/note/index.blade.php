@@ -6,8 +6,8 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header d-flex justify-content-between">
-                    <h5>Todos List</h5>
-                    <a href="{{route('todo.create')}}" class="btn btn-primary">Add</a>
+                    <h5>Notes List</h5>
+                    <a href="{{route('note.create')}}" class="btn btn-primary">Add</a>
 
                 </div>
 
@@ -43,8 +43,8 @@
                                 <td>{{$note->created_at }}</td>
                                 <td>
                                     <div>
-                                        <a href="{{route('todo.edit',$todo->id)}}" class="btn btn-primary btn-sm">Edit </a>
-                                        <a href="a"
+                                        <a href="{{route('note.edit',$note->id)}}" class="btn btn-primary btn-sm">Edit </a>
+                                        <a href="{{route('note.delete', $note->id)}}"
                                             class="btn btn-secondary btn-sm">Delete</a>
                                     </div>
 

@@ -14,8 +14,7 @@ class PetController extends Controller
   }
 
  public function create (){
-return view('pet.create');
-
+  return view('pet.create');
  }  
 
 
@@ -26,8 +25,6 @@ return view('pet.create');
     $saved = $pet->save();
     if($saved){
         Session::flash('success','Record has been Added Successfully!');
-        
-
     }
     else {
         Session::flash('error','Something went wrong!');

@@ -53,3 +53,14 @@ Route::post('/note/store', [App\Http\Controllers\NoteController::class, 'store']
 Route::get('/notes/delete/{id}', [App\Http\Controllers\NoteController::class, 'delete'])->name('note.delete');
 Route::get('/note/edit/{id}',[App\Http\Controllers\NoteController::class, 'edit'])->name('note.edit');
 Route::put('/note/update/{id}',[App\Http\Controllers\NoteController::class, 'update'])->name('note.update');
+
+
+
+Route::get('/movies', [App\Http\Controllers\MovieController::class, 'index'])->name('movie.index');
+Route::get('/movie/create/', [App\Http\Controllers\MovieController::class, 'create'])->name('movie.create');
+Route::post('/movie/store', [App\Http\Controllers\MovieController::class, 'store'])->name('movie.store');
+Route::get('/movie/delete/{id}', [App\Http\Controllers\MovieController::class, 'delete'])->name('movie.delete');
+
+Route::get('/movie/edit/{id}',[App\Http\Controllers\MovieController::class, 'edit'])->name('movie.edit');
+Route::put('/movie/update/{id}',[App\Http\Controllers\MovieController::class, 'update'])->name('movie.update');
+

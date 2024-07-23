@@ -6,8 +6,8 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header d-flex justify-content-between">
-                    <h5>Notes List</h5>
-                    <a href="{{route('note.create')}}" class="btn btn-primary">Add</a>
+                    <h5>Movies List</h5>
+                    <a href="{{route('movie.create')}}" class="btn btn-primary">Add</a>
 
                 </div>
 
@@ -30,7 +30,8 @@
                         <thead>
                             <tr>
                                 <th scope="col">#</th>
-                                <th scope="col">Note</th>
+                                <th scope="col">Title</th>
+                                <th scope="col">Discription</th>
                                 <th scope="col">Created </th>
                                 <th scope="col">Actions</th>
                             </tr>
@@ -43,7 +44,7 @@
                                 <td>{{$movie->discription}}</td>    
                                 <td>{{$movie->created_at }}</td>
                                 <td>
-                                    <div>   
+                                    <div>
                                         <a href="{{route('movie.edit',$movie->id)}}" class="btn btn-primary btn-sm">Edit </a>
                                         <a href="{{route('movie.delete', $movie->id)}}"
                                             class="btn btn-secondary btn-sm">Delete</a>

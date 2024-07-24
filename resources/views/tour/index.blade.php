@@ -6,10 +6,11 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header d-flex justify-content-between">
-                <h5>Pet List</h5>
-                    <a href="{{route('pet.create')}}" class="btn btn-primary">Add Product</a>
-                    
+                    <h5>Tourist List</h5>
+                    <a href="{{route('tour.create')}}" class="btn btn-primary">Add</a>
+
                 </div>
+
                 <div class="card-body">
                     @if(Session::has('success'))
                     <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -24,43 +25,41 @@
                         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                     </div>
                     @endif
+
                     <table class="table table-sm table-dark">
                         <thead>
                             <tr>
                                 <th scope="col">#</th>
                                 <th scope="col">Name</th>
-                                <th scope="col">Company_name</th>
-                                <th scope="col">Company_address</th>
+                                <th scope="col">Visa_Category</th>
+                                <th scope="col">Country</th>
+                                <th scope="col">Costing</th>
                                 <th scope="col">Created </th>
                                 <th scope="col">Actions</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach($pets as $pet)
+                            @foreach($tours as $tour)
                             <tr>
-                                <th scope="row">{{$pet->id}}</th>
-                                <td>{{$pet->title}}</td>
-                                <td>{{$pet->Company_name}}</td>
-                                <td>{{$pet->Company_address}}</td>
-                               <td>{{$pet->created_at }}</td>
+                                <th scope="row">{{$tour->id}}</th>
+                                <td>{{$tour->name}}</td>
+                                <td>{{$tour->visa_category}}</td>
+                                <td>{{$tour->country}}</td>
+                                <td>{{$tour->costing}}</td>
+                                <td>{{$tour->created_at }}</td>
                                 <td>
                                     <div>
-                                    <a href="{{route('pet.edit',$pet->id)}}" class="btn btn-primary btn-sm" >Edit </a>
-                                    <a href="{{route('pet.delete',$pet->id)}}" class="btn btn-secondary btn-sm">Delete</a>
+                                        <a href="{{route('tour.edit',$tour->id)}}" class="btn btn-primary btn-sm">Edit </a>
+                                        <a href="{{route('tour.delete',$tour->id)}}"
+                                            class="btn btn-secondary btn-sm">Delete</a>
                                     </div>
 
-                                    
+
                                 </td>
                             </tr>
                             @endforeach
                         </tbody>
                     </table>
-                </div>
-
-                
-                
-
-                    
 
                 </div>
             </div>

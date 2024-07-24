@@ -17,6 +17,10 @@
                             <label for="name">Name</label>
                             <input type="text" class="form-control" id="name" name="name">
                         </div>
+                        <div class="col-md-8 form-group">
+                            <label for="name">Discription</label>
+                            <input type="text" class="form-control" id="name" name="discription">
+                        </div>
                         <button type="submit" class="btn btn-primary mt-2">Submit</button>
                     </form>
                 </div>

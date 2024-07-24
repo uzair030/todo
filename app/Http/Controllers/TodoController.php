@@ -21,6 +21,7 @@ class TodoController extends Controller
     public function store(Request $request) {
         $todo = new Todo;
         $todo->name = $request->name;
+        $todo->discription = $request->discription;
         $saved = $todo->save();
         
         if($saved){
@@ -59,6 +60,7 @@ public function delete($id){
     public function update(Request $request, $id){
         $todo = Todo::find($id);
         $todo->name = $request->name;
+        $todo->discription = $request->discription;
         $saved = $todo->save();
 
         if($saved){

@@ -60,7 +60,14 @@ Route::get('/movies', [App\Http\Controllers\MovieController::class, 'index'])->n
 Route::get('/movie/create/', [App\Http\Controllers\MovieController::class, 'create'])->name('movie.create');
 Route::post('/movie/store', [App\Http\Controllers\MovieController::class, 'store'])->name('movie.store');
 Route::get('/movie/delete/{id}', [App\Http\Controllers\MovieController::class, 'delete'])->name('movie.delete');
-
 Route::get('/movie/edit/{id}',[App\Http\Controllers\MovieController::class, 'edit'])->name('movie.edit');
 Route::put('/movie/update/{id}',[App\Http\Controllers\MovieController::class, 'update'])->name('movie.update');
 
+
+
+Route::get('/tours', [App\Http\Controllers\TouristController::class, 'index'])->name('tour.index');
+Route::get('/tour/create/', [App\Http\Controllers\TouristController::class, 'create'])->name('tour.create');
+Route::post('/tour/store', [App\Http\Controllers\TouristController::class, 'store'])->name('tour.store');
+Route::get('/tour/delete/{id}', [App\Http\Controllers\TouristController::class, 'delete'])->name('tour.delete');
+Route::get('/tour/edit/{id}',[App\Http\Controllers\TouristController::class, 'edit'])->name('tour.edit');
+Route::put('/tour/update/{id}',[App\Http\Controllers\TouristController::class, 'update'])->name('tour.update');

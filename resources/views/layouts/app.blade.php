@@ -46,6 +46,9 @@
                         <li class="ms-3">
                             <a href="{{route('movie.index')}}">Movie List</a>
                         </li>
+                        <li class="ms-3">
+                            <a href="{{route('tour.index')}}">Tourist List</a>
+                        </li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->

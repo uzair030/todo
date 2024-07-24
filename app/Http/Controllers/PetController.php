@@ -21,6 +21,8 @@ class PetController extends Controller
  public function store(Request $request) {
     $pet = new Pet;
     $pet->title = $request->name;
+    $pet->Company_name = $request->Company_name;
+    $pet->Company_address = $request->Company_address;
     $pet->save();
     $saved = $pet->save();
     if($saved){
@@ -69,6 +71,8 @@ public function edit($id){
 public function update(Request $request, $id){
   $pet = Pet::find($id);
   $pet->title = $request->title;
+  $pet->Company_name = $request->Company_name;
+  $pet->Company_address = $request->Company_address;
   $saved = $pet->save();
 
   if($saved){

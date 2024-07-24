@@ -31,6 +31,7 @@
                             <tr>
                                 <th scope="col">#</th>
                                 <th scope="col">Name</th>
+                                <th scope="col">Discription</th>
                                 <th scope="col">Created </th>
                                 <th scope="col">Actions</th>
                             </tr>
@@ -40,6 +41,7 @@
                             <tr>
                                 <th scope="row">{{$todo->id}}</th>
                                 <td>{{$todo->name}}</td>
+                                <td>{{$todo->discription}}</td>
                                 <td>{{$todo->created_at }}</td>
                                 <td>
                                     <div>

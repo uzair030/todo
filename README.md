@@ -1,2 +1,2 @@
 # Todo App
-## My first practice project
+## My first practice project.

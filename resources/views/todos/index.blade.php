@@ -7,7 +7,7 @@
             <div class="card">
                 <div class="card-header d-flex justify-content-between">
                     <h5>Todos List</h5>
-                    <a href="{{route('todo.create')}}" class="btn btn-primary">Add</a>
+                    <a href="{{route('todo.create')}}" class="btn btn-outline-info">Add</a>
 
                 </div>
 

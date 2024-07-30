@@ -7,7 +7,7 @@
             <div class="card">
                 <div class="card-header d-flex justify-content-between">
                 <h5>Pet List</h5>
-                    <a href="{{route('pet.create')}}" class="btn btn-primary">Add Product</a>
+                    <a href="{{route('pet.create')}}" class="btn btn-outline-info">Add Product</a>
                     
                 </div>
                 <div class="card-body">

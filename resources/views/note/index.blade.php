@@ -7,7 +7,7 @@
             <div class="card">
                 <div class="card-header d-flex justify-content-between">
                     <h5>Notes List</h5>
-                    <a href="{{route('note.create')}}" class="btn btn-primary">Add</a>
+                    <a href="{{route('note.create')}}" class="btn btn-outline-primary">Add</a>
 
                 </div>
 
@@ -36,12 +36,12 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach($movies as $movie)
+                            @foreach($notes as $note)
                             <tr>
-                                <th scope="row">{{$movie->id}}</th>
-                                <td>{{$movie->title}}</td>    
-                                <td>{{$movie->discription}}</td>    
-                                <td>{{$movie->created_at }}</td>
+                                <th scope="row">{{$note->id}}</th>
+                                <td>{{$note->title}}</td>    
+                                <td>{{$note->discription}}</td>    
+                                <td>{{$note->created_at }}</td>
                                 <td>
                                     <div>   
                                         <a href="{{route('movie.edit',$movie->id)}}" class="btn btn-primary btn-sm">Edit </a>

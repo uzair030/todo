@@ -7,7 +7,7 @@
             <div class="card">
                 <div class="card-header d-flex justify-content-between">
                     <h5>Movies List</h5>
-                    <a href="{{route('movie.create')}}" class="btn btn-primary">Add</a>
+                    <a href="{{route('movie.create')}}" class="btn btn-outline-danger">Add</a>
 
                 </div>
 

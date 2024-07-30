@@ -7,7 +7,7 @@
             <div class="card">
                 <div class="card-header d-flex justify-content-between">
                     <h5>Tourist List</h5>
-                    <a href="{{route('tour.create')}}" class="btn btn-primary">Add</a>
+                    <a href="{{route('tour.create')}}" class="btn btn-outline-primary">Add</a>
 
                 </div>
 

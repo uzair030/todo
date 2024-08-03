@@ -14,8 +14,14 @@
                     <form action="{{route('note.store')}}" method="post">
                         @csrf
                         <div class="col-md-8 form-group">
-                            <label for="name">Name</label>
-                            <input type="text" class="form-control" id="name" name="note">
+                            <label for="name">Note</label>
+                            
+                            <input type="text" class="form-control @error('note') is-invalid @endif" id="name" name="note">
+                            @error('note')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
                         </div>
                         <button type="submit" class="btn btn-primary mt-2">Submit</button>
                     </form>

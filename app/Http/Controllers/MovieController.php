@@ -18,6 +18,11 @@ class MovieController extends Controller
     }  
 
     public function store(Request $request) {
+        $request->validate([
+            'title' => 'required|min:7|max:15',
+            'discription' => 'required|min:10|max:50'
+    
+        ]);
         $movie = new Movie;
         $movie->title = $request->title;
         $movie->discription = $request->discription;

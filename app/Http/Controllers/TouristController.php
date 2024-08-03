@@ -20,6 +20,11 @@ class TouristController extends Controller
 
     
     public function store(Request $request) {
+        $request->validate([
+            'name' => 'required|min:5|max:15',
+            'country' => 'required|min:10|max:30',
+            'costing' => 'required|'
+        ]);
         $tour = new Tourist;
         $tour->name = $request->name;
         $tour->visa_category = $request->visa_category;

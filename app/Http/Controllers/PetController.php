@@ -19,6 +19,11 @@ class PetController extends Controller
 
 
  public function store(Request $request) {
+  $request->validate([
+    'name' => 'required|min:5|max:20',
+    'Company_name' =>'required|min:10|max:30',
+    'Company_address' => 'required|min:10|max:30'
+]);
     $pet = new Pet;
     $pet->title = $request->name;
     $pet->Company_name = $request->Company_name;

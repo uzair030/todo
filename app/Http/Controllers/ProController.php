@@ -18,6 +18,11 @@ class ProController extends Controller
    }
 
    public function store(Request $request) {
+    $request->validate([
+        'name' => 'required|min:7|max:15',
+        'description' => 'required|min:10|max:50'
+
+    ]);
     $product = new Product;
     $product->title = $request->name;
     $product->description = $request->description;

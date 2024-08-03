@@ -15,7 +15,12 @@
                         @csrf
                         <div class="col-md-8 form-group">
                             <label for="name">Name</label>
-                            <input type="text" class="form-control" id="name" name="name">
+                            <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" name="name">
+                            @error('name')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
                         </div>
                         <div class="col-md-8 form-group">
                             <label for="visit">Choose Your Visa_Category:</label>
@@ -27,11 +32,21 @@
                         </div>
                         <div class="col-md-8 form-group">
                             <label for="name">Country</label>
-                            <input type="text" class="form-control" id="name" name="country">
+                            <input type="text" class="form-control @error('country') is-invalid @enderror" id="name" name="country">
+                            @error('country')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
                         </div>
                         <div class="col-md-8 form-group">
                             <label for="name">Costing</label>
-                            <input type="text" class="form-control" id="name" name="costing">
+                            <input type="text" class="form-control  @error('costing') is-invalid @enderror" id="name" name="costing">
+                            @error('costing')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
                         </div>
                         <button type="submit" class="btn btn-primary mt-2">Submit</button>
                     </form>

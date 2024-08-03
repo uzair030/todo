@@ -15,11 +15,21 @@
                         @csrf
                         <div class="col-md-8 form-group">
                             <label for="name">Name</label>
-                            <input type="text" class="form-control" id="name" name="name">
+                            <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" name="name">
+                            @error('name')
+                            <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
                         </div>
                         <div class="col-md-8 form-group">
                             <label for="name">Discription</label>
-                            <input type="text" class="form-control" id="name" name="discription">
+                            <input type="text" class="form-control  @error('discription') is-invalid @enderror" id="name" name="discription">
+                            @error('discription')
+                            <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
                         </div>
                         <button type="submit" class="btn btn-primary mt-2">Submit</button>
                     </form>

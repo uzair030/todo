@@ -15,15 +15,30 @@
                         @csrf
                         <div class="col-md-8 form-group">
                             <label for="name">Name</label>
-                            <input type="text" class="form-control" id="name" name="name">
+                            <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" name="name">
+                            @error('name')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
                         </div>
                         <div class="col-md-8 form-group mt-3">
                             <label for="name">Comapny Name</label>
-                            <input type="text" class="form-control" id="name" name="Company_name">
+                            <input type="text" class="form-control @error('Company_name') is-invalid @enderror" id="name" name="Company_name">
+                            @error('Company_name')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
                         </div>
                         <div class="col-md-8 form-group mt-3">
                             <label for="name">Comapny Address</label>
-                            <input type="text" class="form-control" id="name" name="Company_address">
+                            <input type="text" class="form-control @error('Company_address')is-invalid @enderror" id="name" name="Company_address">
+                            @error('Company_address')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
                         </div>
                        
                         <button type="submit" class="btn btn-primary mt-2">Submit</button>

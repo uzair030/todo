@@ -19,6 +19,10 @@ class TodoController extends Controller
     }
 
     public function store(Request $request) {
+        $request->validate([
+            'name' => 'required|min:5|max:20',
+            'discription' =>'required|min:10|max:30'
+        ]);
         $todo = new Todo;
         $todo->name = $request->name;
         $todo->discription = $request->discription;

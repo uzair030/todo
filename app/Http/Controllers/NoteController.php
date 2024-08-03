@@ -19,9 +19,17 @@ class NoteController extends Controller
 
     public function store(Request $request) {
 
-        $saved = Note::create([
-            'note' => $request->note
+        // $saved = Note::create([
+        //     'note' => $request->note
+        // ]);
+        $request->validate([
+            'note' => 'required|min:10|max:30'
         ]);
+
+        $note = new Note;
+        $note->note = $request->note;
+        $saved =$note->save();
+
 
         if($saved){
             Session::flash('success','Record has been Added Successfully!');

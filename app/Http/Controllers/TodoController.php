@@ -41,11 +41,6 @@ public function delete($id){
     $todo = Todo::find($id);
     $deleted = $todo->delete();
 
-    if ($deleted){
-        Session::flash('success', 'Record has been deleted successfully!'); 
-        return redirect()->route('todo.index');
-    }
-    Session::flash('error', 'Something went wrong!'); 
     return redirect()->route('todo.index');
 }
 

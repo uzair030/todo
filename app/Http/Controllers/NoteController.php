@@ -18,10 +18,11 @@ class NoteController extends Controller
     }  
 
     public function store(Request $request) {
-        $note = new Note;
-        $note->note = $request->note;
 
-        $saved = $note->save();
+        $saved = Note::create([
+            'note' => $request->note
+        ]);
+
         if($saved){
             Session::flash('success','Record has been Added Successfully!');
         }
@@ -40,9 +41,10 @@ class NoteController extends Controller
     public function update(Request $request, $id) {
         $note = Note::find($id);
 
-        $note->note = $request->note;
+        $saved = $note->update([
+            'note' => $request->note
+        ]);
 
-        $saved = $note->save();
         if($saved){
             Session::flash('success','Record has been updated Successfully!');
         }

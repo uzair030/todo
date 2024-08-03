@@ -39,13 +39,12 @@
                             @foreach($notes as $note)
                             <tr>
                                 <th scope="row">{{$note->id}}</th>
-                                <td>{{$note->title}}</td>    
-                                <td>{{$note->discription}}</td>    
+                                <td>{{$note->note}}</td>    
                                 <td>{{$note->created_at }}</td>
                                 <td>
                                     <div>   
-                                        <a href="{{route('movie.edit',$movie->id)}}" class="btn btn-primary btn-sm">Edit </a>
-                                        <a href="{{route('movie.delete', $movie->id)}}"
+                                        <a href="{{route('note.edit',$note->id)}}" class="btn btn-primary btn-sm">Edit </a>
+                                        <a href="{{route('note.delete', $note->id)}}"
                                             class="btn btn-secondary btn-sm">Delete</a>
                                     </div>
 

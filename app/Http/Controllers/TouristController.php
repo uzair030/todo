@@ -21,25 +21,31 @@ class TouristController extends Controller
     
     public function store(Request $request) {
         $request->validate([
-            'name' => 'required|min:5|max:15',
-            'country' => 'required|min:10|max:30',
-            'costing' => 'required|'
+            'name' => 'required',
+            'country' => 'required',
+            'costing' => 'required'
         ]);
-        $tour = new Tourist;
-        $tour->name = $request->name;
-        $tour->visa_category = $request->visa_category;
-        $tour->country = $request->country;
-        $tour->costing = $request->costing;
-        $saved = $tour->save();
-        
-        if($saved){
-            Session::flash('success','Record has been Added Successfully!');
+
+        try {
+            $tour = Tourist::create([
+                'name' => $request->name,
+                'visa_category' => $request->visa_category,
+                'country' => $request->country,
+                'costing' => $request->costing
+            ]);
             
-            
-        }
-        else {
+            if($tour){
+                Session::flash('success','Record has been Added Successfully!');
+                
+                
+            }
+            else {
+                Session::flash('error','Something went wrong!');
+            }
+        } catch(\Exception $ex) {
             Session::flash('error','Something went wrong!');
         }
+       
 
         return redirect()->route('tour.index');
         // return redirect()->back();
@@ -67,12 +73,15 @@ class TouristController extends Controller
 
       
 public function update(Request $request, $id){
+
     $tour = Tourist::find($id);
-    $tour->name = $request->name;
-    $tour->visa_category = $request->visa_category;
-    $tour->country = $request->country;
-    $tour->costing = $request->costing;
-    $saved = $tour->save();
+    
+    $saved = $tour->update([
+        'name' => $request->name,
+        'visa_category' => $request->visa_category,
+        'country' => $request->country,
+        'costing' => $request->costing,
+    ]);
   
     if($saved){
         Session::flash('success','Record has been updated');

@@ -23,12 +23,17 @@ class MovieController extends Controller
             'discription' => 'required|min:10|max:50'
     
         ]);
-        $movie = new Movie;
-        $movie->title = $request->title;
-        $movie->discription = $request->discription;
 
-        $saved = $movie->save();
-        if($saved){
+        $movie = Movie::create([
+              'title' => $request->title,
+         'discription' => $request->discription
+        ]);
+        // $movie = new Movie;
+        // $movie->title = $request->title;
+        // $movie->discription = $request->discription;
+
+        // $saved = $movie->save();
+        if($movie){
             Session::flash('success','Record has been Added Successfully!');
         }
         else {
@@ -45,11 +50,17 @@ class MovieController extends Controller
     public function update(Request $request, $id) {
         $movie = Movie::find($id);
 
-        $movie->title = $request->title;
-        $movie->discription = $request->discription;
+        $movie->update([
+            'title' => $request->title,
+            'discription' => $request->discription
+      
+        ]);
 
-        $saved = $movie->save();
-        if($saved){
+        // $movie->title = $request->title;
+        // $movie->discription = $request->discription;
+
+        // $saved = $movie->save();
+        if($movie){
             Session::flash('success','Record has been updated Successfully!');
         }
         else {

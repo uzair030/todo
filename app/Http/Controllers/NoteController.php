@@ -26,12 +26,16 @@ class NoteController extends Controller
             'note' => 'required|min:10|max:30'
         ]);
 
-        $note = new Note;
-        $note->note = $request->note;
-        $saved =$note->save();
+        $note =Note::create([
+          'note' => $request->note
+        ]);
+
+        // $note = new Note;
+        // $note->note = $request->note;
+        // $saved =$note->save();
 
 
-        if($saved){
+        if($note){
             Session::flash('success','Record has been Added Successfully!');
         }
         else {
@@ -49,11 +53,11 @@ class NoteController extends Controller
     public function update(Request $request, $id) {
         $note = Note::find($id);
 
-        $saved = $note->update([
+        $note->update([
             'note' => $request->note
         ]);
 
-        if($saved){
+        if($note){
             Session::flash('success','Record has been updated Successfully!');
         }
         else {

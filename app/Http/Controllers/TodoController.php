@@ -8,7 +8,7 @@ use Session;
 
 class TodoController extends Controller
 {
-    public function index() {
+    public function index(){
         $todos = Todo::all();
         return view('todos.index', compact('todos'));
         // return view('todos.index')->with(['todo' => $todos]);
@@ -18,20 +18,22 @@ class TodoController extends Controller
         return view('todos.create');
     }
 
-    public function store(Request $request) {
+
+
+    public function store(Request $request){ 
         $request->validate([
             'name' => 'required|min:5|max:20',
             'discription' =>'required|min:10|max:30'
+        ]); 
+        $todos = Todo::create([
+
+            'name' => $request->name,
+            'discription' => $request->discription
+
         ]);
-        $todo = new Todo;
-        $todo->name = $request->name;
-        $todo->discription = $request->discription;
-        $saved = $todo->save();
-        
-        if($saved){
-            Session::flash('success','Record has been Added Successfully!');
-            
-            
+
+        if($todos){
+            Session::flash('success','Record has been Added Successfully!'); 
         }
         else {
             Session::flash('error','Something went wrong!');
@@ -57,12 +59,13 @@ public function delete($id){
     }
 
     public function update(Request $request, $id){
-        $todo = Todo::find($id);
-        $todo->name = $request->name;
-        $todo->discription = $request->discription;
-        $saved = $todo->save();
+        $todos= Todo::find($id);
+        $todos->update([
+            'name' => $request->name,
+            'discription' => $request->discription
+        ]);
 
-        if($saved){
+        if($todos){
             Session::flash('success','Record has been updated');
 
         }
@@ -71,4 +74,5 @@ public function delete($id){
         }
         return redirect()->route('todo.index');
     }
+
 }

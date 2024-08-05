@@ -15,8 +15,8 @@
                         @csrf
                         <div class="col-md-8 form-group">
                             <label for="name">Name</label>
-                            <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" name="name">
-                            @error('name')
+                            <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" name="title">
+                            @error('title')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>

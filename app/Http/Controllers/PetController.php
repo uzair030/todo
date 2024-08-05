@@ -20,17 +20,25 @@ class PetController extends Controller
 
  public function store(Request $request) {
   $request->validate([
-    'name' => 'required|min:5|max:20',
+    'title' => 'required|min:5|max:20',
     'Company_name' =>'required|min:10|max:30',
     'Company_address' => 'required|min:10|max:30'
-]);
-    $pet = new Pet;
-    $pet->title = $request->name;
-    $pet->Company_name = $request->Company_name;
-    $pet->Company_address = $request->Company_address;
-    $pet->save();
-    $saved = $pet->save();
-    if($saved){
+
+  ]);
+
+    $pet = Pet::create([
+        'title' => $request->title,
+        'Company_name' => $request->Company_name,
+       'Company_address' => $request->Company_address
+    ]);
+ 
+    // $pet = new Pet;
+    // $pet->title = $request->name;
+    // $pet->Company_name = $request->Company_name;
+    // $pet->Company_address = $request->Company_address;
+    // $pet->save();
+    // $saved = $pet->save();
+    if($pet){
         Session::flash('success','Record has been Added Successfully!');
     }
     else {
@@ -73,20 +81,26 @@ public function edit($id){
 
 }
 
-public function update(Request $request, $id){
-  $pet = Pet::find($id);
-  $pet->title = $request->title;
-  $pet->Company_name = $request->Company_name;
-  $pet->Company_address = $request->Company_address;
-  $saved = $pet->save();
+    public function update(Request $request, $id){
+            $pet = Pet::find($id);
+            $pet->update([
+              'title' => $request->title,
+             'Company_name' => $request->Company_name,
+             'Company_address' => $request->Company_address
+            ]);
+            // $pet->title = $request->title;
+            // $pet->Company_name = $request->Company_name;
+            // $pet->Company_address = $request->Company_address;
+            // $saved = $pet->save();
 
-  if($saved){
-      Session::flash('success','Record has been updated');
+      if($pet){
+        dd($pet);
+           Session::flash('success','Record has been updated');
 
-  }
-  else {
-      Session::flash('error','Something went wrong!');
-  }
-  return redirect()->route('pet.index');
-}
-}
+      }
+      else {
+          Session::flash('error','Something went wrong!');
+      }
+          return redirect()->route('pet.index');
+    }
+    }

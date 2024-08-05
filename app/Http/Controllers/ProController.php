@@ -16,29 +16,33 @@ class ProController extends Controller
    public function create(){
        return view ('product.create');
    }
-
    public function store(Request $request) {
+    // Validate the incoming request data
     $request->validate([
-        'name' => 'required|min:7|max:15',
+        'title' => 'required|min:7|max:15',
         'description' => 'required|min:10|max:50'
-
     ]);
-    $product = new Product;
-    $product->title = $request->name;
-    $product->description = $request->description;
-    $saved = $product->save();
-    // dd($saved);ss
-    if($saved){
-        Session::flash('success','Record has been Added Successfully!');
-        
 
-    }
-    else {
-        Session::flash('error','Something went wrong!');
-    }
-    
-    
+    try {
+        // Attempt to create a new product
+        $product = Product::create([
+            'title' => $request->title,
+            'description' => $request->description
+        ]);
 
+        // Check if the product was successfully created
+        if ($product) {
+            Session::flash('success', 'Record has been added successfully!');
+        } else {
+            Session::flash('error', 'Something went wrong!');
+        }
+    } catch (\Exception $e) {
+        // Catch any exceptions and flash an error message
+        Session::flash('error', 'An error occurred: ');
+    }
+
+
+    
     return redirect()->route('pro.index');
     // return redirect()->back();
     }
@@ -72,11 +76,13 @@ public function edit($id){
 
 public function update(Request $request, $id){
   $pro = Product::find($id);
-  $pro->title = $request->title;
-  $pro->description = $request->description;
-  $saved = $pro->save();
+  $pro->update([
+        "title" =>$request->title,
+        "description" =>$request->description,
+  ]);
 
-  if($saved){
+
+  if($pro){
       Session::flash('success','Record has been updated');
 
   }

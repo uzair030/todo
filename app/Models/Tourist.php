@@ -8,4 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class Tourist extends Model
 {
     use HasFactory;
+    protected $fillable = ['name', 'visa_category', 'country', 'costing']; 
 }

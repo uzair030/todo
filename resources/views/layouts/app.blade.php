@@ -29,28 +29,30 @@
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav me-auto">
-                        <li>
-                            <a href="{{route('todo.index')}}">Todos List</a>
-                        </li>
-                        <li class="ms-3">
-                            <a href="{{route('pet.index')}}">Pet List</a>
-                        </li>
-                        <li class="ms-3">
-                            <a href="{{route('pro.index')}}">Product List</a>
-                        </li>
+                    
+                    @auth
+                        <ul class="navbar-nav me-auto">
+                            <li>
+                                <a href="{{route('todo.index')}}">Todos List</a>
+                            </li>
+                            <li class="ms-3">
+                                <a href="{{route('pet.index')}}">Pet List</a>
+                            </li>
+                            <li class="ms-3">
+                                <a href="{{route('pro.index')}}">Product List</a>
+                            </li>
 
-                        <li class="ms-3">
-                            <a href="{{route('note.index')}}">Note List</a>
-                        </li>
-                        <li class="ms-3">
-                            <a href="{{route('movie.index')}}">Movie List</a>
-                        </li>
-                        <li class="ms-3">
-                            <a href="{{route('tour.index')}}">Tourist List</a>
-                        </li>
-                    </ul>
-
+                            <li class="ms-3">
+                                <a href="{{route('note.index')}}">Note List</a>
+                            </li>
+                            <li class="ms-3">
+                                <a href="{{route('movie.index')}}">Movie List</a>
+                            </li>
+                            <li class="ms-3">
+                                <a href="{{route('tour.index')}}">Tourist List</a>
+                            </li>
+                        </ul>
+                    @endauth
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ms-auto">
                         <!-- Authentication Links -->

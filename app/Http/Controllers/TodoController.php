@@ -33,7 +33,7 @@ class TodoController extends Controller
         ]);
 
         if($todos){
-            Session::flash('success','Record has been Added Successfully!'); 
+            Session::flash('success','Record  Added hogya ab dubara tang ni krna!'); 
         }
         else {
             Session::flash('error','Something went wrong!');
@@ -66,7 +66,7 @@ public function delete($id){
         ]);
 
         if($todos){
-            Session::flash('success','Record has been updated');
+            Session::flash('success','Record updated krdya hai');
 
         }
         else {

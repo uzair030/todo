@@ -94,7 +94,7 @@ public function edit($id){
             // $saved = $pet->save();
 
       if($pet){
-        dd($pet);
+        // dd($pet);/
            Session::flash('success','Record has been updated');
 
       }
